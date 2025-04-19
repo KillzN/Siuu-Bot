@@ -24,7 +24,7 @@ for (const key in collaborators) {
     }
 }
 activeCollaborators = activeCollaborators.slice(0, -2);
-cfonts.say('Zer\nWay', {
+cfonts.say('KILL\nBot', {
     align: 'center',
     gradient: ['red', 'blue']
 })
@@ -34,7 +34,7 @@ cfonts.say(description, {
     gradient: ['blue', 'magenta']
 })
 const message = `${subtitleStyle('Desarrollado por »')} ${responseStyle(author.name)}
-${subtitleStyle('Código basado por »')} ${responseStyle('Sisked')}
+${subtitleStyle('Código basado por »')} ${responseStyle('El Fvcking Kcha Pitucas')}
 ${subtitleStyle('Colaboradores activos »')} ${responseStyle(activeCollaborators)}
 ${subtitleStyle('Versión »')} ${responseStyle(version)}`
 console.log(boxen(message, { padding: 1, margin: 1, borderStyle: 'double', borderColor: 'blue', float: 'center', }))

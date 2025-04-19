@@ -1,7 +1,7 @@
 {
     "name": "KILL BOT",
-    "version": "2.0.7",
-    "description": "Simple WhatsApp Bot Multi Device",
+    "version": "Mvrco tu papi",
+    "description": "Sigueme en ig @ineffable.mvrco",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -18,7 +18,7 @@
         "eslint": "eslint .",
         "eslintfix": "eslint --fix ."
     },
-    "homepage": "https://github.com/Adrianmaze/Kill",
+    "homepage": "www.instagram.com/ineffable.mvrco",
     "author": {
         "name": "Kill"
     },
@@ -28,10 +28,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Adrianmaze/Kill.git"
+        "url": "git+www.instagram.com/ineffable.mvrco.git"
     },
     "bugs": {
-        "url": "https://github.com/Adrianmaze/Kill/issues"
+        "url": "www.instagram.com/ineffable.mvrco/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
