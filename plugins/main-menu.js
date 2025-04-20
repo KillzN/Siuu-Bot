@@ -1,7 +1,8 @@
-import { promises } from 'fs'
-import { join } from 'path'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
+import { promises } from 'fs';
+import { join } from 'path';
+import fetch from 'node-fetch';
+import { xpRange } from '../lib/levelling.js';
+import fs from 'fs';
 
 let tags = {
   'main': 'Info 📚',
@@ -22,67 +23,54 @@ let tags = {
   'audio': 'Audios 🔉',
   'anime': 'Anime 👑',
   'advanced': 'Avanzado 💠',
-}
+};
 
 const defaultMenu = {
   before: `
-“ Hola *%name*, Te Presento el Menu de KILL BOT”
+*¡Hola %name!* 👋 Aquí tienes el menú de KILL BOT 🧑‍💻
 
-⬣「 *Info User* 」⬣
-*👤 Nombre ∙* %name
-*🍬 Dulces ∙* %limit
-*💫 XP ∙* %totalexp
-*⭐ Nivel ∙* %level
-
+📊 *Info de Usuario* 📊
+────────────────────────────
+👤 *Nombre:* %name
+🍬 *Dulces:* %limit
+💫 *XP:* %totalexp
+⭐ *Nivel:* %level
 %readmore
-◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡◠◡
-
-\t\t\t*KILL BOT  -  M E N U*
+────────────────────────────
+*IV BOT - M E N U* ✨
 `.trimStart(),
   header: '╭──⚔️「 *%category* 」⚡',
-  body: '│  👑◦ *%cmd*\n',
+  body: '│  🔱 *%cmd*\n',
   footer: '╰──📍\n',
-  after: '',
-}
+  after: '*Para más información, usa el comando correspondiente* 💬',
+};
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
-    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
-    let { exp, limit, level } = global.db.data.users[m.sender]
-    let { min, xp, max } = xpRange(level, global.multiplier)
-    let name = await conn.getName(m.sender)
-    let d = new Date(new Date + 3600000)
-    let locale = 'es'
-    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
-    let week = d.toLocaleDateString(locale, { weekday: 'long' })
-    let date = d.toLocaleDateString(locale, {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    }).format(d)
-    let time = d.toLocaleTimeString(locale, {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
-    })
-    let _uptime = process.uptime() * 1000
-    let _muptime
+    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {};
+    let { exp, limit, level } = global.db.data.users[m.sender];
+    let { min, xp, max } = xpRange(level, global.multiplier);
+    let name = await conn.getName(m.sender);
+    let d = new Date(new Date + 3600000);
+    let locale = 'es';
+    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5];
+    let week = d.toLocaleDateString(locale, { weekday: 'long' });
+    let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
+    let time = d.toLocaleTimeString(locale, { hour: 'numeric', minute: 'numeric', second: 'numeric' });
+    let _uptime = process.uptime() * 1000;
+    let _muptime;
     if (process.send) {
-      process.send('uptime')
+      process.send('uptime');
       _muptime = await new Promise(resolve => {
-        process.once('message', resolve)
-        setTimeout(resolve, 1000)
-      }) * 1000
+        process.once('message', resolve);
+        setTimeout(resolve, 1000);
+      }) * 1000;
     }
-    let muptime = clockString(_muptime)
-    let uptime = clockString(_uptime)
-    let totalreg = Object.keys(global.db.data.users).length
-    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+    let muptime = clockString(_muptime);
+    let uptime = clockString(_uptime);
+    let totalreg = Object.keys(global.db.data.users).length;
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
@@ -91,18 +79,18 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         limit: plugin.limit,
         premium: plugin.premium,
         enabled: !plugin.disabled,
-      }
-    })
+      };
+    });
     for (let plugin of help)
       if (plugin && 'tags' in plugin)
         for (let tag of plugin.tags)
-          if (!(tag in tags) && tag) tags[tag] = tag
-    conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || defaultMenu.before
-    let header = conn.menu.header || defaultMenu.header
-    let body = conn.menu.body || defaultMenu.body
-    let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : ``) + defaultMenu.after
+          if (!(tag in tags) && tag) tags[tag] = tag;
+    conn.menu = conn.menu ? conn.menu : {};
+    let before = conn.menu.before || defaultMenu.before;
+    let header = conn.menu.header || defaultMenu.header;
+    let body = conn.menu.body || defaultMenu.body;
+    let footer = conn.menu.footer || defaultMenu.footer;
+    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : ``) + defaultMenu.after;
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -112,15 +100,15 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
                 .replace(/%islimit/g, menu.limit ? '' : '')
                 .replace(/%isPremium/g, menu.premium ? '' : '')
-                .trim()
-            }).join('\n')
+                .trim();
+            }).join('\n');
           }),
           footer
-        ].join('\n')
+        ].join('\n');
       }),
       after
-    ].join('\n')
-    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
+    ].join('\n');
+    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : '';
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
@@ -140,29 +128,37 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
       level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg,
       readmore: readMore
-    }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    };
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name]);
 
-    let pp = './src/img/KILLBOT.jpg'
-    await conn.sendFile(m.chat, pp, 'thumbnail.jpg', text.trim(), m, null)
+    // Verificar existencia del archivo antes de enviarlo
+    let pp = './src/img/KILLBOT.jpg';
+    fs.access(pp, fs.constants.F_OK, async (err) => {
+      if (err) {
+        console.error('El archivo no existe:', pp);
+        conn.reply(m.chat, 'Lo siento, no se encuentra la imagen de KILL BOT.', m);
+      } else {
+        await conn.sendFile(m.chat, pp, 'thumbnail.jpg', text.trim(), m, null);
+      }
+    });
 
   } catch (e) {
-    conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m)
-    throw e
+    conn.reply(m.chat, 'Lo sentimos, el menú tiene un error.', m);
+    throw e;
   }
-}
+};
 
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = ['menu', 'help', 'menú', 'comandos', 'allmenu', 'menucompleto', 'funciones']
-export default handler
+handler.help = ['menu'];
+handler.tags = ['main'];
+handler.command = ['menu', 'help', 'menú', 'comandos', 'allmenu', 'menucompleto', 'funciones'];
+export default handler;
 
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
+const more = String.fromCharCode(8206);
+const readMore = more.repeat(4001);
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
+  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
 }
