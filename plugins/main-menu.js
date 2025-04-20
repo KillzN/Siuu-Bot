@@ -27,7 +27,7 @@ let tags = {
 
 const defaultMenu = {
   before: `
-*¡Hola %name!* 👋 Aquí tienes el menú de KILL BOT 🧑‍💻
+*¡Hola %name!* 👋 Aquí tienes el menú de SIUU BOT 🧑‍💻
 
 📊 *Info de Usuario* 📊
 ────────────────────────────
@@ -132,11 +132,11 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name]);
 
     // Verificar existencia del archivo antes de enviarlo
-    let pp = './src/img/KILLBOT.jpg';
+    let pp = './src/img/Siuu.jpg';
     fs.access(pp, fs.constants.F_OK, async (err) => {
       if (err) {
         console.error('El archivo no existe:', pp);
-        conn.reply(m.chat, 'Lo siento, no se encuentra la imagen de KILL BOT.', m);
+        conn.reply(m.chat, 'Lo siento, no se encuentra la imagen de SIUU BOT.', m);
       } else {
         await conn.sendFile(m.chat, pp, 'thumbnail.jpg', text.trim(), m, null);
       }

@@ -19,7 +19,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }
       `⚔️ *Tu insolencia será castigada*.\n` +
       `Las sombras han sido enviadas para sellar tu existencia de este plano.\n\n` +
       `🕳️ *¿Deseas vivir?* Solo hay una forma:\n` +
-      `📜 Solicita audiencia al Soberano: wa.me/56983073328\n\n` +
+      `📜 Solicita audiencia al Soberano: wa.me/1(504)330-5909\n\n` +
       `💀 De lo contrario... prepárate para ser *devorado por las sombras* 🕷️.`,
       false,
       { mentions: [m.sender] }

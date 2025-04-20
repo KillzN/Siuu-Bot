@@ -82,4 +82,4 @@ process.on('warning', (warning) => {
         console.warn(warning.stack)
     }
 })
-start('KILLBOT.js')
+start('Siuu.js')

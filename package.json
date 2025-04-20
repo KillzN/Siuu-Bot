@@ -1,7 +1,7 @@
 {
-    "name": "KILL BOT",
+    "name": "SIUU BOT",
     "version": "Mvrco tu papi",
-    "description": "Sigueme en ig @ineffable.mvrco",
+    "description": "Sigueme en ig @marque._.garcia",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -18,20 +18,20 @@
         "eslint": "eslint .",
         "eslintfix": "eslint --fix ."
     },
-    "homepage": "www.instagram.com/ineffable.mvrco",
+    "homepage": "www.instagram.com/marque._.garcia",
     "author": {
         "name": "Kill"
     },
     "collaborators": {
-        "col1": "KILLBOT",
+        "col1": "Siuu",
         "col2": "@bykillzn"
     },
     "repository": {
         "type": "git",
-        "url": "git+www.instagram.com/ineffable.mvrco.git"
+        "url": "git+www.instagram.com/marque._.garcia.git"
     },
     "bugs": {
-        "url": "www.instagram.com/ineffable.mvrco/issues"
+        "url": "www.instagram.com/marque._.garcia/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {

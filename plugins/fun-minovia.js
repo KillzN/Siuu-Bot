@@ -2,7 +2,7 @@ import PhoneNumber from 'awesome-phonenumber'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn }) => {
-  let _pp = 'https://killzn.imgbb.com/'
+  let _pp = 'https://i.ibb.co/HDRLD7S7/Mid.jpg'
   let user = db.data.users[m.sender]
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let pp = await conn.profilePictureUrl(who, 'image').catch(_ => _pp)

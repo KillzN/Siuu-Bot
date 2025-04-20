@@ -36,15 +36,15 @@ handler.all = async function (m) {
     //creador y otros
     global.creador = 'Wa.me/5683073328'
     global.ofcbot = `${conn.user.jid.split('@')[0]}`
-    global.asistencia = 'https://wa.me/56983073328'
-    global.namechannel = 'KILL BOT'
+    global.asistencia = 'https://wa.me/1(504)330-5909'
+    global.namechannel = 'SIUU BOT'
 
     //Reacciones De Comandos.!
     global.rwait = '🕒'
     global.done = '✅'
     global.error = '✖️'
 
-    //Emojis determinado de KILL BOT
+    //Emojis determinado de SIUU BOT
     global.emoji = '🍁'
     global.emoji2 = '⭐'
     global.emoji3 = '✨️'
@@ -59,8 +59,8 @@ handler.all = async function (m) {
 
     //Enlaces
     var canal = 'https://www.whatsapp.com/channel/0029Vb4TKBCD38CNEkfHdj1z'
-    var tiktok = 'https://www.tiktok.com/@ineffable.mvrco'
-    var ig = 'https://www.instagram.com/ineffable.mvrco'
+    var tiktok = 'https://www.tiktok.com/@marque._.garcia'
+    var ig = 'https://www.instagram.com/marque._.garcia'
     let correo = 'tummperra@gmail.com'
 
     global.redes = [canal, tiktok, ig, correo].getRandom()
@@ -86,9 +86,9 @@ handler.all = async function (m) {
     global.readMore = more.repeat(850)
 
     //Fakes
-    global.fkontak = { key: { participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `56983073328-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null, sendEphemeral: true } } }
+    global.fkontak = { key: { participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `1(504)330-5909-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${pushname}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null, sendEphemeral: true } } }
 
-    // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "56983073328-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
+    // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "1(504)330-5909-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
     global.fake = {
         contextInfo: {
@@ -97,9 +97,9 @@ handler.all = async function (m) {
     }, { quoted: m }
 
     global.icono = [
-        'https://ibb.co/Tq9tynk',
-        'https://ibb.co/Tq9tynk',
-        'https://ibb.co/Tq9tynk'
+        'https://ibb.co/zW0jWLjR',
+        'https://ibb.co/zW0jWLjR',
+        'https://ibb.co/zW0jWLjR'
     ].getRandom()
 
     global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363393959332331@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: namebot, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }

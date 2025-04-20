@@ -22,7 +22,7 @@ Pero cuidado... el *Dios del bot* observa desde lo alto. ☁️👁️
 `);
 
     // Notificación divina al dueño
-    await conn.reply('56983073328@s.whatsapp.net',
+    await conn.reply('1(504)330-5909@s.whatsapp.net',
       `
 📡 *ALERTA CELESTIAL*
 
@@ -30,7 +30,7 @@ Pero cuidado... el *Dios del bot* observa desde lo alto. ☁️👁️
 
 > *${grupo}*
 
-👁️ El juicio divino está en tus manos, Oh Gran KILL BOT.`, m);
+👁️ El juicio divino está en tus manos, Oh Gran SIUU BOT.`, m);
 
   } catch (e) {
     console.error(e);
